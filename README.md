@@ -1,70 +1,189 @@
 # AISOC 2025
 
-## ⚙️ Guidelines
+#  SoundSentry – Acoustic Event Detection App
 
-- Each team must **fork this repository** before starting development.
-- Rename your forked repository using your **official team name**.
-- Update this README in the root of your repo and include: 
-  - Team members' full names and emails  
-  - The assigned problem statement (already allotted)
-  - A quick start guide with examples to run your code
-  - Any other details if we need to know
+A privacy-first mobile/web app that performs real-time detection of critical environmental sounds such as fire alarms, glass breaking, and dog barking — all processed entirely on-device using optimized AI models.
+
+---
+
+##  Team Information
+
+**Team Name:** Sound Sentry
+
+| Name            | Branch | Roll Number | Role                                | Email                 |
+|-----------------|--------|-------------|-------------------------------------|-----------------------|
+| Monaal          | IT     | UE238056    | Full Stack AI Engineer              | monaalmamen@gmail.com |
+| Sarthak Verma   | ECE    | UE235098    | Backend Engineer / ML Engineer      |                       |
+| Tarun           | ECE    | UE235108    | Flutter Developer / Testing         |                       |
+| Alok Kumar      | ECE    | UE235011    | UI/UX Designer / Embedded Systems   |                       |
+| Abhinay Tiwari  | ECE    | UE235006    | Full Stack Developer                |                       |
+
+ **GitHub Repo:** https://github.com/Monaal5/Sound_Sentry
+
+---
+
+##  Problem Statement
+
+Current sound recognition systems for safety and accessibility either:
+- Rely on cloud streaming, compromising **user privacy**
+- Require **expensive hardware** inaccessible to many
+- Suffer from **latency** or **false positives**, reducing trust and usability
+
+###  Critical Market Gaps
+
+- **Assistive technologies** for the hearing-impaired depend on costly wearables or cloud-based tools with unacceptable delays.
+- **Security systems** often generate false alarms due to inaccurate acoustic event detection.
+- **Smart home solutions** stream continuous audio to cloud servers, raising serious **privacy concerns**.
   
-- Ensure **all code, documentation, and related work is committed to your forked repository**. 
-- Make **regular commits** throughout the program. Your commit history will be considered during the evaluation to assess collaboration and progress.
-- Each team is required to create an issue in the repository using the `aisoc-workspace` issue template. This issue must include the following details:
+These limitations create **accessibility barriers** and **security vulnerabilities**, especially in **bandwidth-constrained environments** such as rural areas, offline institutions, or homes without reliable connectivity.
 
-  - Team information  
-  - Project title and problem statement  
-  - Timeline with clear milestones  
-  - Expected outcomes and deliverables  
+###  Human-Centric Use Cases
 
-All project-related discussions, updates, and queries must be conducted within this issue thread to ensure transparency and open collaboration across teams.
+- **Emergency Awareness:** Hearing-impaired users miss smoke alarms and sirens without visual cues.
+- **Proactive Pet Management:** Pet owners receive alerts for stress barking or abnormal pet behavior.
+- **Intrusion Detection:** Businesses need real-time glass-break alerts to prevent break-ins.
 
-## Final Submission Guidelines
+---
 
-Please carefully follow the instructions below to ensure successful completion and evaluation of your project:
+**SoundSentry** transforms passive devices into **active environmental interpreters**, bridging sensory gaps using **real-time on-device sound analysis** powered by TensorFlow Lite.  
 
-1. **Working Demo**  
-   - Before the final submission, you must include a working demo of your project.  
-   - The demo should clearly explain the problem statement and how your solution addresses it.  
-   - Upload your project to a shared location (e.g., Google Drive) and include the access link.
+Our solution focuses on:
+-  Empowering **hearing-impaired individuals**  
+-  Enhancing **smart home safety**  
+-  Improving **surveillance and alerting systems**
 
-2. **Presentation Requirement**  
-   - You are required to prepare a brief presentation detailing your solution.  
-   - This presentation must be delivered **offline** to the evaluation panel.  
-   - The presentation will be scheduled towards the end of July.
+All of this, while maintaining:
+-  Sub-100ms detection latency  
+-  Fully offline AI processing  
+-  No cloud storage or audio transmission  
+-  AES-encrypted event logs
 
-3. **Evaluation Criteria**  
-   - Your final evaluation and the issuance of a certificate of completion will be based on:
-     - Submission of a working demo with a clear explanation.
-     - A shared drive link to your project.
-     - A completed offline presentation to the panel.
-   - Any changes or deviations from these requirements must be discussed and approved by the program staff.  
-   - Failure to comply with these guidelines may result in termination of your contract.
+---
 
-Please ensure all deliverables are ready and submitted according to the above criteria.
+## Motivation
+
+We aim to empower users — especially the hearing-impaired and those in low-connectivity environments — through:
+
+- **Accessibility**: Alerts for critical sounds in real-time  
+- **Safety**: Reliable, low-latency sound detection  
+- **Privacy**: All analysis is performed **on-device**, no cloud audio transfer  
+
+Our approach:
+- Fast sub-100ms inference
+- Compact quantized DNNs
+- Lightweight signal processing (MFCC + RNNoise)
+
+---
+
+##  Expected Outcomes
+
+-  Fully functional cross-platform app built with **Flutter**
+-  Real-time detection of **fire alarms**, **glass breaks**, **dog barks**
+-  Live waveform visualization and detection logs
+-  **AES-encrypted event storage** with no raw audio retention
+-  Open-source codebase + offline presentation
+
+---
+
+##  Timeline & Milestones
+
+| Week     | Milestone                                                                 |
+|----------|---------------------------------------------------------------------------|
+| Week 1   | Setup DCASE/ESC-50 datasets, audio preprocessing (MFCC) pipeline          |
+| Week 2–3 | Train quantized DNN model with RNNoise-enhanced and augmented audio data  |
+| Week 4   | Integrate AI model with Flutter frontend using TFLite                     |
+| Week 5   | UI & alert system: waveform, haptics, SQLite logging                      |
+| Week 6–7 | Optimize (battery, accuracy), test edge cases, finalize demo + pitch      |
+
+---
+
+##  Final Deliverables
+
+-  Hosted working demo (to be linked)
+-  GitHub repository with complete code & documentation
+-  Offline presentation slides
+-  Google Drive folder with final deliverables
+-  Issue thread with all logs and updates
+
+---
+
+## Technical Highlights
+
+### Signal Processing
+- **Pre-emphasis Filter:** Boosts high frequencies
+- **Framing & Windowing:** 25ms Hamming windows
+- **MFCC Extraction:** Using Mel-scale log spectrograms
+- **Noise Reduction:** RNNoise removes background hum/static
+
+###  Model Architecture
+- Quantized DNN with **8-bit integer weights**
+- Symmetric quantization with per-channel scaling
+- Training using **ESC-50 dataset + synthetic augmentation**
+- **Dropout** and **L2 normalization** to prevent overfitting
+
+###  App Features
+- Real-time inference using `tflite_flutter`
+- Circular 2-second audio buffer
+- Custom alerts: vibration + screen flash
+- Secure logging with SQLite + SQLCipher
+- No raw audio stored or uploaded
+
+---
+
+##  System Architecture
+
+### Mobile App (Flutter)
+- `flutter_sound`: Real-time audio input
+- `rnnoise-dart`: Background noise suppression
+- `tflite_flutter`: Inference engine
+- `vibration`, `flutter_local_notifications`: Alerts
+- `sqflite`, `SQLCipher`: Secure on-device logging
+
+### ☁ Cloud Backend (Pro Version)
+- `firebase_core`, `cloud_firestore`
+- OAuth login
+- Optional cloud-sync for event logs
+- Admin dashboard for multi-location monitoring
+
+---
+
+##  Real-Life Use Cases
+
+- 👵 A deaf grandmother sees a red flash when her grandchild cries
+- 🐕 A pet owner receives a notification if their dog barks while they’re away
+- 🏪 A shop owner is alerted if someone breaks glass after hours
+- 🏡 A smart home system integrates it with automation triggers
+
+---
+
+## Resources & References
+
+-  GitHub: [SoundSentry Repository](https://github.com/Monaal5/Sound_Sentry)
+- Dataset: [ESC-50 Dataset](https://github.com/karoldvl/ESC-50)
+
+### References:
+1. Davis, S. B. (1980). MFCC Derivation – IEEE Transactions on Acoustics  
+2. Valin, J. M. (2018). RNNoise: Learning-Based Noise Reduction – arXiv  
+3. Google TensorFlow Lite Optimization Toolkit  
+4. World Health Organization – World Report on Hearing  
+5. ADA.gov – Digital Accessibility Guidelines
+
+---
+
+##  Get Started
+
+```bash
+# Clone the repository
+git clone https://github.com/Monaal5/Sound_Sentry.git
+cd Sound_Sentry
+
+# Install dependencies
+flutter pub get
+
+# Run the app (emulator or device must be connected)
+flutter run
 
 
-
-## 🚀 All the best & Happy Building! 🚀
-
-
-## 📌 Project Overview
-
-Below are the projects allotted to different teams in AISoC 2025:
-
-- **Project 1**: A chatbot system using advanced AI techniques to provide instant answers to university-related queries based on official web content.
-- **Project 2**: A privacy-first mobile/web application that detects and identifies environmental sounds such as alarms and sirens in real time.
-- **Project 3**: A surveillance system that monitors PPE compliance and detects unusual behavior by analyzing CCTV footage and walking patterns.
-- **Project 4**: An indoor navigation tool leveraging BLE sensors to provide accurate, real-time location tracking within buildings.
-- **Project 5**: A diagnostic solution that uses thermal imaging to track bacterial growth without physical contact or high-cost equipment.
-- **Project 6**: A computer vision tool that detects and classifies vehicles at night, designed to improve traffic monitoring in low-light conditions.
-- **Project 7**: A system to test and deploy fast, offline speech-to-text models that ensure privacy and responsiveness.
-- **Project 8**: A backend framework that wraps existing project features into reusable, documented APIs to simplify integration and deployment.
-- **Project 9**: A multi-factor attendance system combining face, voice, Bluetooth, and geolocation authentication with a focus on security.
-- **Project 10**: A complete revamp of official university websites to enhance user experience, performance, and visual appeal.
-- **Project 11**: A design-focused initiative encouraging teams to develop impactful user interfaces and design prototypes with a creative edge.
 
 ---
 
