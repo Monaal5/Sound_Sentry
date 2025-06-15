@@ -10,13 +10,13 @@ A privacy-first mobile/web app that performs real-time detection of critical env
 
 **Team Name:** Sound Sentry
 
-| Name            | Branch | Roll Number | Role                                | Email                 |
-|-----------------|--------|-------------|-------------------------------------|-----------------------|
-| Monaal          | IT     | UE238056    | Full Stack AI Engineer              | monaalmamen@gmail.com |
-| Sarthak Verma   | ECE    | UE235098    | Backend Engineer / ML Engineer      |                       |
-| Tarun           | ECE    | UE235108    | Flutter Developer / Testing         |                       |
-| Alok Kumar      | ECE    | UE235011    | UI/UX Designer / Embedded Systems   |                       |
-| Abhinay Tiwari  | ECE    | UE235006    | Full Stack Developer                |                       |
+| Name            | Branch | Roll Number | Role                                | Email                    |
+|-----------------|--------|-------------|-------------------------------------|--------------------------|
+| Monaal          | IT     | UE238056    | Full Stack AI Engineer              | monaalmamen@gmail.com    |
+| Sarthak Verma   | ECE    | UE235098    | Backend Engineer / ML Engineer      | iamsarthakverma@gmail.com|
+| Tarun           | ECE    | UE235108    | Flutter Developer / Testing         | tarunmehrda@gmail.com    |                 
+| Alok Kumar      | ECE    | UE235011    | UI/UX Designer / Embedded Systems   | alokyadav1023@gmail.com  |                     
+| Abhinay Tiwari  | ECE    | UE235006    | Full Stack Developer                |abhinaytiwari542@gmail.com|                    
 
  **GitHub Repo:** https://github.com/Monaal5/Sound_Sentry
 
